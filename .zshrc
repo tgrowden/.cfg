@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git mvn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,8 +84,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
-source "/usr/local/opt/nvm/nvm.sh"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export PATH="$HOME/bin":"${JAVA_HOME}/bin":"$HOME/.composer/vendor/bin":$PATH
 export EDITOR='vim'
 
