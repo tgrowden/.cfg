@@ -89,9 +89,9 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH="$HOME/bin":"${JAVA_HOME}/bin":"$HOME/.composer/vendor/bin":$PATH
 export EDITOR='vim'
 
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+# export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 ###-begin-pm2-completion-###
