@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+[ -s /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH="$HOME/bin":"${JAVA_HOME}/bin":"$HOME/.composer/vendor/bin":$PATH
 export EDITOR='vim'
 
