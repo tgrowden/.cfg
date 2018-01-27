@@ -249,3 +249,5 @@ bind v split -h
 bind b split -v
 
 set-window-option -g mode-keys vi
+set -sg repeat-time 5
+set -g mouse on
