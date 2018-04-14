@@ -2,3 +2,5 @@
 .vscode
 
 watch-js.sh
+
+hs_err_pid*.log

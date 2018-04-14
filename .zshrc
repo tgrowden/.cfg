@@ -4,6 +4,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# PATH
+export PATH="$HOME/bin":$PATH
+if [ -d "${HOME}/.composer/vendor/bin" ]; then
+    export PATH="$HOME/.composer/vendor/bin":$PATH
+fi
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -51,7 +57,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git mvn gradle)
+plugins=(git mvn gradle gulp npm npx nvm node)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,14 +91,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH="$HOME/bin":"${JAVA_HOME}/bin":"$HOME/.composer/vendor/bin":$PATH
-export EDITOR='vim'
 
-# export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export EDITOR='vim'
 
 ###-begin-pm2-completion-###
 ### credits to npm for the completion file model
@@ -136,3 +136,14 @@ fi
 ###-end-pm2-completion-###
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# OS-specific configurations
+OS=`uname`
+OS_ZSHRC="${HOME}/.zshrc.${OS}"
+if [ -f "${OS_ZSHRC}" ]; then
+    export OS_ZSHRC
+    source "${OS_ZSHRC}"
+fi
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
